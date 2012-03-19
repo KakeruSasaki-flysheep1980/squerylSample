@@ -7,11 +7,12 @@ import org.squeryl.Table
 import java.util.Date
 import org.squeryl.PrimitiveTypeMode._
 
-case class MyModel(val id: Long, val name: String, var createTime: Timestamp, var updateTime: Timestamp) extends BaseModel {
+case class MyModel(val id: Long, var name: String, var createTime: Timestamp, var updateTime: Timestamp) extends BaseModel {
 	def this(name: String) = this(0L, name, new Timestamp(0L), new Timestamp(0L))
 	
 	def updateName(sname: String) = {
-		this.copy(name = sname).update
+		this.name_=(sname)
+		this.update
 	}
 }
 
