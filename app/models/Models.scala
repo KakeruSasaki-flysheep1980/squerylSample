@@ -38,6 +38,10 @@ object MyModel extends MySchema[MyModel] {
 			from(myModel)(t => where(t.id === id) select(t)).headOption
 		}
 	}
+	
+	def throwException {
+		throw new RuntimeException("")
+	}
 
 }
 
